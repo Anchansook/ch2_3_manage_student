@@ -24,11 +24,13 @@ public class CourseService {
     courseRepository.save(course);
   }
 
+  // 요일에 해당하는 수업 가져오기
   public List<CourseInfoDto> getCourseDayOfWeek(DayOfWeek dayOfWeek) {
     // TODO: 과제 구현 부분
     return new ArrayList<>();
   }
 
+  // 수강료 변경하기
   public void changeFee(String studentName, int fee) {
     // TODO: 과제 구현 부분
   }

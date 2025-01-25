@@ -22,10 +22,12 @@ public class StudentService {
         .orElseThrow(() -> new IllegalArgumentException("해당하는 학생이 없습니다."));
   }
 
+  // 활성화 학생
   public void activateStudent(String name) {
     // TODO: 과제 구현 부분
   }
 
+  // 비활성화 학생
   public void deactivateStudent(String name) {
     // TODO: 과제 구현 부분
   }
