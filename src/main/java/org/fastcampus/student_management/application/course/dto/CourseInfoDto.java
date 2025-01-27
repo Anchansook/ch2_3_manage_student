@@ -4,11 +4,11 @@ import org.fastcampus.student_management.domain.Course;
 import org.fastcampus.student_management.domain.DayOfWeek;
 
 public class CourseInfoDto {
-  private final String courseName;
-  private final int fee;
-  private final DayOfWeek dayOfWeek;
-  private final String studentName;
-  private final Long courseTime;
+  private final String courseName; // 수업명
+  private final int fee; // 수강료
+  private final DayOfWeek dayOfWeek; // 요일
+  private final String studentName; // 학생 이름
+  private final Long courseTime; // 수업 시간
 
   public CourseInfoDto(String courseName, int fee, String dayOfWeek, String studentName, Long courseTime) {
     this.courseName = courseName;
