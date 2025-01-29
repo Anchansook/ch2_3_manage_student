@@ -24,11 +24,43 @@ public class StudentService {
 
   // 활성화 학생
   public void activateStudent(String name) {
-    // TODO: 과제 구현 부분
+    // 학생이 있는 지 확인
+    Student student = studentRepository.findByName(name)
+      .orElseThrow(() -> new IllegalArgumentException("해당하는 학생이 없습니다."));
+
+    // 이미 활성 상태인지 확인
+    if (student.isActivate()) {
+      System.out.println("이미 활성화된 학생입니다.: " + name);
+      return;
+    }
+
+    // 수강생 활성 상태로 변경
+    student.activate();
+
+    // 변경된 학생 정보를 저장
+    studentRepository.save(student);
+
+    System.out.println("학생 활성화 완료: " + name);
   }
 
   // 비활성화 학생
   public void deactivateStudent(String name) {
-    // TODO: 과제 구현 부분
+    // 학생이 있는 지 확인
+    Student student = studentRepository.findByName(name)
+      .orElseThrow(() -> new IllegalArgumentException("해당하는 학생이 없습니다."));
+
+    // 이미 비활성화 상태인지 확인
+    if (!student.isActivate()) {
+      System.out.println("이미 비활성화 학생입니다.: " + name);
+      return;
+    }
+
+    // 수강생 비활성화 상태로 변경
+    student.deactivate();
+
+    // 변경된 학생 정보를 저장
+    studentRepository.save(student);
+
+    System.out.println("학생 비활성화 완료: " + name);
   }
 }

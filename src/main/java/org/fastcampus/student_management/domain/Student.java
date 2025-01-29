@@ -5,6 +5,7 @@ public class Student {
   private final String name;
   private final int age;
   private final String address;
+  // 수강생 상태 여부
   private boolean activated;
 
   public Student(String name, int age, String address) {
@@ -29,7 +30,19 @@ public class Student {
   public String getAddress() {
     return address;
   }
+
+  // 수강생 상태 여부
   public boolean isActivate() {
     return activated;
+  }
+
+  // 수강생을 활성화하는 메서드 추가
+  public void activate() {
+    this.activated = true;
+  }
+
+  // 수강생을 비활성화하는 메서드 추가
+  public void deactivate() {
+    this.activated = false;
   }
 }

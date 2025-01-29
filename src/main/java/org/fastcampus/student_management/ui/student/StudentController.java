@@ -1,6 +1,5 @@
 package org.fastcampus.student_management.ui.student;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 import org.fastcampus.student_management.application.student.StudentService;
 import org.fastcampus.student_management.application.student.dto.StudentInfoDto;
@@ -38,6 +37,7 @@ public class StudentController {
     studentPresenter.showStudentRegistered();
   }
 
+  // 수강생 상태를 활성 상태로 변경
   public void activateStudent() {
     String name = getStudentName();
     studentService.activateStudent(name);
