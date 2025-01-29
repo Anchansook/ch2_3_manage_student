@@ -29,12 +29,15 @@ public class CourseService {
   // 요일에 해당하는 수업 가져오기
   public List<CourseInfoDto> getCourseDayOfWeek(DayOfWeek dayOfWeek) {
     // 리포지토리에서 Course 리스트를 가져옴
-    List<Course> course = courseRepository.getCourseDayOfWeek(dayOfWeek);
+    List<Course> courses = courseRepository.getCourseDayOfWeek(dayOfWeek);
 
-    // 반환타입 변환
-    return course.stream()
-            .map(CourseInfoDto::new)
-            .collect(Collectors.toList());
+    // 반환타입 변환 : 결과는 잘 나옴
+    // return courses.stream()
+    //         .map(CourseInfoDto::new)
+    //         .collect(Collectors.toList());
+
+    //% 강사님 VER
+    return courses.stream().map(CourseInfoDto::new).toList();
   }
 
   // 수강료 변경하기
