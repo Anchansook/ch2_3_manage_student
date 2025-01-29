@@ -33,6 +33,7 @@ public class CourseController {
     coursePresenter.showCourseRegistered();
   }
 
+  // 요일에 해당하는 수업 보여주기
   public void showCourseDayOfWeek() {
     DayOfWeek dayOfWeek = getDayOfWeek();
 
@@ -41,6 +42,7 @@ public class CourseController {
     coursePresenter.showCourseList(result);
   }
 
+  // 수강료 변경
   public void changeFee() {
     String studentName = getStudentName();
     int fee = getCourseFee();

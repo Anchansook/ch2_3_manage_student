@@ -1,5 +1,6 @@
 package org.fastcampus.student_management.application.course;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,6 +39,30 @@ public class CourseService {
 
   // 수강료 변경하기
   public void changeFee(String studentName, int fee) {
-    // TODO: 과제 구현 부분
+    // 학생이 등록된 모든 과정 찾기
+    List<Course> courses = courseRepository.getCourseListByStudent(studentName);
+
+    // 학생이 등록된 과정이 없으면 종료
+    if (courses.isEmpty()) {
+      System.out.println("해당 학생의 수강 과정이 없습니다." + studentName);
+      return;
+    }
+
+    // 변경된 수업 리스트 생성
+    List<Course> updatedCourses = new ArrayList<>();
+    for (Course course: courses) {
+      Course updatedCourse = new Course(
+        null, 
+        course.getStudentName(), 
+        fee, 
+        course.getDayOfWeek(), 
+        course.getCourseTime());
+        updatedCourses.add(updatedCourse);
+    }
+
+    // 변경된 과정 저장
+    courseRepository.saveCourses(updatedCourses);
+
+    System.out.println("수강료 변경 완료: " + studentName + " -> " + fee);
   }
 }

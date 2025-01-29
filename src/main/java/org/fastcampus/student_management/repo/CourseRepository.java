@@ -26,6 +26,7 @@ public class CourseRepository {
     return courses;
   }
 
+  // 학생 수업 리스트 가져오기
   public List<Course> getCourseListByStudent(String studentName) {
     List<Course> courses = new ArrayList<>();
     for (Course course : courseMap.values()) {
@@ -36,6 +37,7 @@ public class CourseRepository {
     return courses;
   }
 
+  // 수업 등록
   public void saveCourses(List<Course> courses) {
     for (Course course : courses) {
       courseMap.put(course.getCourseName(), course);
