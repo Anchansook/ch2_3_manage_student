@@ -3,6 +3,7 @@ package org.fastcampus.student_management.domain;
 import java.util.List;
 
 // 1급 컬랙션 객체
+// : 수강료 변경을 위한
 
 public class CourseList {
 
