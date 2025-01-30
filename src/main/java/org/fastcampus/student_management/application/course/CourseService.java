@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.fastcampus.student_management.application.course.dto.CourseInfoDto;
 import org.fastcampus.student_management.application.student.StudentService;
 import org.fastcampus.student_management.domain.Course;
+import org.fastcampus.student_management.domain.CourseList;
 import org.fastcampus.student_management.domain.DayOfWeek;
 import org.fastcampus.student_management.domain.Student;
 import org.fastcampus.student_management.repo.CourseRepository;
@@ -43,29 +44,44 @@ public class CourseService {
   // 수강료 변경하기
   public void changeFee(String studentName, int fee) {
     // 학생이 등록된 모든 과정 찾기
-    List<Course> courses = courseRepository.getCourseListByStudent(studentName);
+    // List<Course> courses = courseRepository.getCourseListByStudent(studentName);
 
     // 학생이 등록된 과정이 없으면 종료
-    if (courses.isEmpty()) {
-      System.out.println("해당 학생의 수강 과정이 없습니다." + studentName);
-      return;
-    }
+    // if (courses.isEmpty()) {
+    //   System.out.println("해당 학생의 수강 과정이 없습니다." + studentName);
+    //   return;
+    // }
 
     // 변경된 수업 리스트 생성
-    List<Course> updatedCourses = new ArrayList<>();
-    for (Course course: courses) {
-      Course updatedCourse = new Course(
-        null, 
-        course.getStudentName(), 
-        fee, 
-        course.getDayOfWeek(), 
-        course.getCourseTime());
-        updatedCourses.add(updatedCourse);
-    }
+    // List<Course> updatedCourses = new ArrayList<>();
+    // for (Course course: courses) {
+    //   Course updatedCourse = new Course(
+    //     null, 
+    //     course.getStudentName(), 
+    //     fee, 
+    //     course.getDayOfWeek(), 
+    //     course.getCourseTime());
+    //     updatedCourses.add(updatedCourse);
+    // }
 
     // 변경된 과정 저장
-    courseRepository.saveCourses(updatedCourses);
+    // courseRepository.saveCourses(updatedCourses);
 
-    System.out.println("수강료 변경 완료: " + studentName + " -> " + fee);
+    // System.out.println("수강료 변경 완료: " + studentName + " -> " + fee);
+
+    //% 강사님 ver
+    List<Course> courses = courseRepository.getCourseListByStudent(studentName);
+
+    // for (Course course: courses) {
+    //   if (course.isSameDay(DayOfWeek.SATURDAY) || course.isSameDay(DayOfWeek.SUNDAY)) 
+    //     course.changeFee((int) (fee * 1.5));
+
+    //     course.changeFee(fee);
+    // }
+    // -> 1급 객체에 이 로직을 넣어줌으로써 여기는 간단하게 변경이 가능
+
+    CourseList courseList = new CourseList(courses);
+    courseList.changeAllCoursesFee(fee);
+
   }
 }

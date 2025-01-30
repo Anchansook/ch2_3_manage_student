@@ -59,6 +59,7 @@ public class Main {
           studentController.deactivateStudent();
           break;
         // == 학생 상태
+        // == 수강료 변경
         case CHANGE_FEE:
           courseController.changeFee();
           break;
