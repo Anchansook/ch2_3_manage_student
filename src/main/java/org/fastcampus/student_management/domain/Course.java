@@ -23,10 +23,12 @@ public class Course {
     return courseName;
   }
 
+  // 같은 요일인지 확인하는 메서드
   public boolean isSameDay(DayOfWeek dayOfWeek) {
     return this.dayOfWeek.equals(dayOfWeek);
   }
 
+  // 학생의 활성화 여부를 확인하는 메서드
   public boolean isActivateUser() {
     return student.isActivate();
   }
