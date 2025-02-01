@@ -73,6 +73,7 @@ public class CourseController {
     }
   }
 
+  // 요일 가져오기
   private DayOfWeek getDayOfWeek() {
     while (true) {
       coursePresenter.showInputDayOfWeek();
