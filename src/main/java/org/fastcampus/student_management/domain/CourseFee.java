@@ -7,10 +7,12 @@ public class CourseFee {
 	private int fee;
 
 	public CourseFee(int fee) {
+		checkFee(fee);
 		this.fee = fee;
 	}
 
 	public void changeFee(int fee) {
+		checkFee(fee);
 		this.fee = fee;
 	}
 
