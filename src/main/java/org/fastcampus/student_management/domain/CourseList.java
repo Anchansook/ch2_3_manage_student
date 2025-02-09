@@ -17,8 +17,7 @@ public class CourseList {
 		for (Course course: courses) {
 			if (course.isSameDay(DayOfWeek.SATURDAY) || course.isSameDay(DayOfWeek.SUNDAY)) 
         		course.changeFee((int) (fee * 1.5));
-
-			course.changeFee(fee);
+			else course.changeFee(fee);
 		}
 	}
 	
